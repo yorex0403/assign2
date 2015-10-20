@@ -116,8 +116,18 @@ switch(state){
   case END:
   if(mouseX>=205&&mouseX<=436&&mouseY>=305&&mouseY<=350){
     image(end1,0,0);
-    if(mousePressed)
+    if(mousePressed){
+//reset treasure position      
+      treasureX=floor(random(0,600));
+      treasureY=floor(random(0,440));
+//reset enemy position      
+      enemyX=-60;
+      enemyY=floor(random(0,430));
+//reset fighter position      
+      fighterX=520;
+      fighterY=240;
       state=PLAY;
+      }
     }else
       image(end2,0,0);
   break;
