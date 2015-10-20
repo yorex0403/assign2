@@ -73,6 +73,7 @@ switch(state){
     image(treasure,treasureX,treasureY);
     image(enemy,enemyX,enemyY);
   //hp
+    hpX=20;
     fill(#ff0000);
     stroke(#ff0000);
     rect(20,18,hpX*2,20);
@@ -117,7 +118,7 @@ switch(state){
   if(mouseX>=205&&mouseX<=436&&mouseY>=305&&mouseY<=350){
     image(end1,0,0);
     if(mousePressed)
-      state=START;
+      state=PLAY;
     }else
       image(end2,0,0);
   break;
