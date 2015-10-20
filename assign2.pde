@@ -1,6 +1,7 @@
 final int START=0;
 final int PLAY=1;
 final int END=2;
+final int RESET=3;
 
 PImage start1;
 PImage start2;
@@ -47,6 +48,15 @@ switch(state){
     if(mouseX>=205&&mouseX<=455&&mouseY>=375&&mouseY<=415){
     image(start1,0,0);
     if(mousePressed){
+      state=RESET;
+      }
+    }else
+    image(start2,0,0);
+  break;
+  
+  
+  
+  case RESET:
 //reset treasure position      
       treasureX=floor(random(0,600));
       treasureY=floor(random(0,440));
@@ -56,13 +66,13 @@ switch(state){
 //reset fighter position      
       fighterX=520;
       fighterY=240;
+      hpX=20;
+      
       state=PLAY;
-      }
-    }else
-    image(start2,0,0);
-  break;
-  
-  
+    break;  
+
+      
+      
   case PLAY:  
     background(0);
     image(bg1,bgX%1280-640,0);
@@ -72,7 +82,6 @@ switch(state){
     image(treasure,treasureX,treasureY);
     image(enemy,enemyX,enemyY);
   //hp
-    hpX=20;
     fill(#ff0000);
     stroke(#ff0000);
     rect(20,18,hpX*2,20);
@@ -116,18 +125,8 @@ switch(state){
   case END:
   if(mouseX>=205&&mouseX<=436&&mouseY>=305&&mouseY<=350){
     image(end1,0,0);
-    if(mousePressed){
-//reset treasure position      
-      treasureX=floor(random(0,600));
-      treasureY=floor(random(0,440));
-//reset enemy position      
-      enemyX=-60;
-      enemyY=floor(random(0,430));
-//reset fighter position      
-      fighterX=520;
-      fighterY=240;
-      state=PLAY;
-      }
+    if(mousePressed)
+      state=RESET;
     }else
       image(end2,0,0);
   break;
