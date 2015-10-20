@@ -56,7 +56,6 @@ switch(state){
 //reset fighter position      
       fighterX=520;
       fighterY=240;
-      hpX=floor(random(21,100));
       state=PLAY;
       }
     }else
